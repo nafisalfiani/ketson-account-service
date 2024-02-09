@@ -3,9 +3,9 @@ package broker
 import (
 	"context"
 
-	"github.com/nafisalfiani/p3-final-project/lib/header"
-	"github.com/nafisalfiani/p3-final-project/lib/log"
-	"github.com/nafisalfiani/p3-final-project/lib/parser"
+	"github.com/nafisalfiani/ketson-account-service/lib/header"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/parser"
 	"github.com/streadway/amqp"
 )
 

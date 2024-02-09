@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/nafisalfiani/p3-final-project/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

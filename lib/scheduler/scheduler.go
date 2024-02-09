@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/go-co-op/gocron"
-	"github.com/nafisalfiani/p3-final-project/lib/auth"
-	"github.com/nafisalfiani/p3-final-project/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/auth"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 )
 
 var (

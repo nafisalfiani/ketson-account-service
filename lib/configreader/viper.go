@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/mitchellh/mapstructure"
-	"github.com/nafisalfiani/p3-final-project/lib/files"
+	"github.com/nafisalfiani/ketson-account-service/lib/files"
 	"github.com/spf13/viper"
 )
 

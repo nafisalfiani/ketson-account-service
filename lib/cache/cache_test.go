@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	mock_log "github.com/nafisalfiani/p3-final-project/lib/tests/mock/log"
+	mock_log "github.com/nafisalfiani/ketson-account-service/lib/tests/mock/log"
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/mock/gomock"
 )

@@ -3,7 +3,7 @@ package errors
 import (
 	"fmt"
 
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
 )
 
 type stacktrace struct {

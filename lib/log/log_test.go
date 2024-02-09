@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nafisalfiani/p3-final-project/lib/appcontext"
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
-	"github.com/nafisalfiani/p3-final-project/lib/errors"
+	"github.com/nafisalfiani/ketson-account-service/lib/appcontext"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/errors"
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"
 )

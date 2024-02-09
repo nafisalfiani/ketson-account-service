@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
 	"github.com/stretchr/testify/assert"
 )
 

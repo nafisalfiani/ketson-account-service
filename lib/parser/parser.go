@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"github.com/nafisalfiani/p3-final-project/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 )
 
 type Parser interface {

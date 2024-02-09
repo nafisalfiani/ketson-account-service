@@ -7,8 +7,8 @@ import (
 
 	firebase "firebase.google.com/go"
 	firebase_messaging "firebase.google.com/go/messaging"
-	"github.com/nafisalfiani/p3-final-project/lib/log"
-	"github.com/nafisalfiani/p3-final-project/lib/parser"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/parser"
 	"google.golang.org/api/option"
 )
 

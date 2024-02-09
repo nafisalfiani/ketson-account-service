@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
 )
 
 func TestApp_Error(t *testing.T) {

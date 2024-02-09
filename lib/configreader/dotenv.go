@@ -7,8 +7,8 @@ import (
 	"strconv"
 
 	"github.com/joho/godotenv"
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
-	"github.com/nafisalfiani/p3-final-project/lib/errors"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/errors"
 )
 
 type dotEnvReader struct {

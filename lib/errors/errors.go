@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
 )
 
 type App struct {
@@ -95,9 +95,9 @@ func create(cause error, code codes.Code, msg string, val ...interface{}) error 
 
 func shortFuncName(f *runtime.Func) string {
 	// f.Name() is like one of these:
-	// - "github.com/nafisalfiani/p3-final-project/lib/<package>.<FuncName>"
-	// - "github.com/nafisalfiani/p3-final-project/lib/<package>.<Receiver>.<MethodName>"
-	// - "github.com/nafisalfiani/p3-final-project/lib/<package>.<*PtrReceiver>.<MethodName>"
+	// - "github.com/nafisalfiani/ketson-account-service/lib/<package>.<FuncName>"
+	// - "github.com/nafisalfiani/ketson-account-service/lib/<package>.<Receiver>.<MethodName>"
+	// - "github.com/nafisalfiani/ketson-account-service/lib/<package>.<*PtrReceiver>.<MethodName>"
 	longName := f.Name()
 
 	withoutPath := longName[strings.LastIndex(longName, "/")+1:]

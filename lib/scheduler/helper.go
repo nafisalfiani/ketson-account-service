@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/nafisalfiani/p3-final-project/lib/appcontext"
-	"github.com/nafisalfiani/p3-final-project/lib/auth"
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
-	"github.com/nafisalfiani/p3-final-project/lib/errors"
+	"github.com/nafisalfiani/ketson-account-service/lib/appcontext"
+	"github.com/nafisalfiani/ketson-account-service/lib/auth"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/errors"
 )
 
 const (

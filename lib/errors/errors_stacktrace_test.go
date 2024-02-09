@@ -3,7 +3,7 @@ package errors
 import (
 	"testing"
 
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
 )
 
 func Test_stacktrace_Error(t *testing.T) {

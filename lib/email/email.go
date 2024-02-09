@@ -5,9 +5,9 @@ import (
 	"crypto/tls"
 	"fmt"
 
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
-	"github.com/nafisalfiani/p3-final-project/lib/errors"
-	"github.com/nafisalfiani/p3-final-project/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/errors"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 	"gopkg.in/gomail.v2"
 )
 

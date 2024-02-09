@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/cstockton/go-conv"
-	"github.com/nafisalfiani/p3-final-project/lib/codes"
-	"github.com/nafisalfiani/p3-final-project/lib/errors"
+	"github.com/nafisalfiani/ketson-account-service/lib/codes"
+	"github.com/nafisalfiani/ketson-account-service/lib/errors"
 )
 
 func ToInt64(i interface{}) (int64, error) {
