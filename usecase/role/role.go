@@ -5,7 +5,7 @@ import (
 
 	roleDom "github.com/nafisalfiani/ketson-account-service/domain/role"
 	"github.com/nafisalfiani/ketson-account-service/entity"
-	"github.com/nafisalfiani/ketson-go-lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 )
 
 type role struct {

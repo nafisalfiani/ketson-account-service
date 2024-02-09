@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/nafisalfiani/ketson-account-service/entity"
+	"github.com/nafisalfiani/ketson-account-service/lib/auth"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 	"github.com/nafisalfiani/ketson-account-service/usecase/user"
-	"github.com/nafisalfiani/ketson-go-lib/auth"
-	"github.com/nafisalfiani/ketson-go-lib/log"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )

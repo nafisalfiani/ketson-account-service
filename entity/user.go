@@ -3,7 +3,7 @@ package entity
 import (
 	"time"
 
-	"github.com/nafisalfiani/ketson-go-lib/auth"
+	"github.com/nafisalfiani/ketson-account-service/lib/auth"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

@@ -6,8 +6,8 @@ import (
 
 	userDom "github.com/nafisalfiani/ketson-account-service/domain/user"
 	"github.com/nafisalfiani/ketson-account-service/entity"
-	"github.com/nafisalfiani/ketson-go-lib/broker"
-	"github.com/nafisalfiani/ketson-go-lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/broker"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
 )
 
 type user struct {

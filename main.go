@@ -8,15 +8,15 @@ import (
 	"github.com/nafisalfiani/ketson-account-service/config"
 	"github.com/nafisalfiani/ketson-account-service/domain"
 	"github.com/nafisalfiani/ketson-account-service/handler/grpc"
+	"github.com/nafisalfiani/ketson-account-service/lib/auth"
+	"github.com/nafisalfiani/ketson-account-service/lib/broker"
+	"github.com/nafisalfiani/ketson-account-service/lib/cache"
+	"github.com/nafisalfiani/ketson-account-service/lib/configreader"
+	"github.com/nafisalfiani/ketson-account-service/lib/log"
+	"github.com/nafisalfiani/ketson-account-service/lib/nosql"
+	"github.com/nafisalfiani/ketson-account-service/lib/parser"
+	"github.com/nafisalfiani/ketson-account-service/lib/security"
 	"github.com/nafisalfiani/ketson-account-service/usecase"
-	"github.com/nafisalfiani/ketson-go-lib/auth"
-	"github.com/nafisalfiani/ketson-go-lib/broker"
-	"github.com/nafisalfiani/ketson-go-lib/cache"
-	"github.com/nafisalfiani/ketson-go-lib/configreader"
-	"github.com/nafisalfiani/ketson-go-lib/log"
-	"github.com/nafisalfiani/ketson-go-lib/nosql"
-	"github.com/nafisalfiani/ketson-go-lib/parser"
-	"github.com/nafisalfiani/ketson-go-lib/security"
 )
 
 func main() {
