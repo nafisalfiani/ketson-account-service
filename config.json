@@ -1,0 +1,39 @@
+{
+    "auth": {
+      "accesstokenkey": "1lk2e967dus^8hs6dASU@JE",
+      "accesstokenduration": "3600s",
+      "refreshtokenkey": "6s!7hJd2l8eAkR#9Usd6u",
+      "refreshtokenduration": "43200s"
+    },
+    "log": {
+      "level": "debug"
+    },
+    "security": {
+      "secretkey": "5dge967dus^8hs6dA$bD7rH"
+    },
+    "nosql": {
+      "maxidleconn": "10",
+      "maxidletime": "10s",
+      "dsn": "mongodb+srv://ica:password1234@cluster0.odxlqrs.mongodb.net/?retryWrites=true&w=majority"
+    },
+    "cache": {
+      "protocol": "",
+      "host": "redis-11010.c1.ap-southeast-1-1.ec2.cloud.redislabs.com",
+      "port": "11010",
+      "username": "default",
+      "password": "mCEeZ038zlvm6KlIkmzR1Tb7ok3A6LNQ",
+      "defaultttl": "3600s",
+      "tls": {
+        "enabled": false,
+        "insecureskipverify": false
+      }
+    },
+    "broker": {
+      "url": "amqps://gqqgcxcl:fMBaMbVn_hZ0WbADjA5UIOoRhi0XRczX@octopus.rmq3.cloudamqp.com/gqqgcxcl"
+    },
+    "grpc": {
+      "base": "",
+      "port": "50051"
+    }
+  }
+  

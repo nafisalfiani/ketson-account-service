@@ -1,0 +1,150 @@
+package auth
+
+import (
+	context "context"
+	"time"
+
+	"github.com/nafisalfiani/ketson-account-service/entity"
+	"github.com/nafisalfiani/ketson-account-service/usecase/role"
+	"github.com/nafisalfiani/ketson-account-service/usecase/user"
+	"github.com/nafisalfiani/ketson-go-lib/auth"
+	"github.com/nafisalfiani/ketson-go-lib/codes"
+	"github.com/nafisalfiani/ketson-go-lib/errors"
+	"github.com/nafisalfiani/ketson-go-lib/log"
+	"github.com/nafisalfiani/ketson-go-lib/security"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
+)
+
+type grpcAuth struct {
+	log  log.Interface
+	sec  security.Interface
+	auth auth.Interface
+	user user.Interface
+	role role.Interface
+}
+
+func Init(log log.Interface, sec security.Interface, auth auth.Interface, user user.Interface, role role.Interface) AuthServiceServer {
+	return &grpcAuth{
+		log:  log,
+		sec:  sec,
+		auth: auth,
+		user: user,
+		role: role,
+	}
+}
+
+func (a *grpcAuth) mustEmbedUnimplementedAuthServiceServer() {}
+
+func (a *grpcAuth) Register(ctx context.Context, in *RegisterRequest) (*RegisterResponse, error) {
+	hashedPassword, err := a.sec.HashPassword(ctx, in.GetPassword())
+	if err != nil {
+		return nil, err
+	}
+
+	// get member role
+	role, err := a.role.Get(ctx, entity.Role{Code: "member"})
+	if err != nil {
+		a.log.Error(ctx, err)
+		return nil, err
+	}
+
+	newId := primitive.NewObjectID()
+	createReq := entity.User{
+		Id:        newId,
+		Username:  in.GetUsername(),
+		Name:      in.GetName(),
+		Password:  hashedPassword,
+		Email:     in.GetEmail(),
+		Role:      role,
+		CreatedAt: time.Now(),
+		CreatedBy: newId.Hex(),
+	}
+	newUser, err := a.user.Create(ctx, createReq)
+	if err != nil {
+		a.log.Error(ctx, err)
+		return nil, err
+	}
+
+	res := &RegisterResponse{
+		Id:       newUser.Id.Hex(),
+		Name:     newUser.Name,
+		Username: newUser.Username,
+		Email:    newUser.Email,
+		Role:     newUser.Role.Code,
+	}
+
+	return res, nil
+}
+
+func (a *grpcAuth) Login(ctx context.Context, in *LoginRequest) (*LoginResponse, error) {
+	user, err := a.user.Get(ctx, entity.User{
+		Username: in.GetUsername(),
+	})
+	if err != nil {
+		a.log.Error(ctx, err)
+		return nil, err
+	}
+
+	if !user.IsEmailVerified {
+		return nil, errors.NewWithCode(codes.CodeAuth, "email not verified yet")
+	}
+
+	if !a.sec.CompareHashPassword(ctx, user.Password, in.GetPassword()) {
+		return nil, errors.NewWithCode(codes.CodeAuthWrongPassword, "password doesn't match")
+	}
+
+	token, err := a.auth.CreateToken(ctx, user.ToAuthUser())
+	if err != nil {
+		a.log.Error(ctx, err)
+		return nil, err
+	}
+
+	res := &LoginResponse{
+		TokenType:       token.TokenType,
+		AccessToken:     token.AccessToken,
+		AccessExpiresIn: token.AccessExpiresIn,
+	}
+
+	return res, nil
+}
+
+func (a *grpcAuth) CreateRole(ctx context.Context, req *Role) (*Role, error) {
+	roleReq := entity.Role{
+		Code:   req.GetCode(),
+		Scopes: req.GetScopes(),
+	}
+
+	role, err := a.role.Create(ctx, roleReq)
+	if err != nil {
+		a.log.Error(ctx, err)
+		return nil, err
+	}
+
+	res := &Role{
+		Id:     role.Id.Hex(),
+		Code:   role.Code,
+		Scopes: role.Scopes,
+	}
+
+	return res, nil
+}
+
+func (a *grpcAuth) ListRole(ctx context.Context, in *emptypb.Empty) (*RoleList, error) {
+	roles, err := a.role.List(ctx)
+	if err != nil {
+		a.log.Error(ctx, err)
+		return nil, err
+	}
+
+	res := &RoleList{}
+	for i := range roles {
+		res.Roles = append(res.Roles, &Role{
+			Id:     roles[i].Id.Hex(),
+			Code:   roles[i].Code,
+			Scopes: roles[i].Scopes,
+		})
+	}
+
+	return res, nil
+}
